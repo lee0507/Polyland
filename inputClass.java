@@ -6,11 +6,10 @@ import java.util.Scanner;
 public class inputClass {
 	
 	Scanner scanner = new Scanner(System.in);
-	outputClass opc; 
-	typeClass tp;
+	outputClass opc = new outputClass(); 
+	static typeClass tp = new typeClass();
 	
 	public int inputTicketSelect() {
-		opc = new outputClass();
 		
 		int ticketSelect = 0;
 		System.out.println("권종을 선택해주세요.");
@@ -34,8 +33,7 @@ public class inputClass {
 	}
 	
 	public String inputCustomerIDNumber() {
-		opc = new outputClass();
-		
+
 		String CustomerIDNumber;
 		System.out.println("주민번호를 입력해주세요.( - 없이 13자리를 입력해주세요)");
 		CustomerIDNumber = scanner.next();
@@ -50,9 +48,7 @@ public class inputClass {
 	}
 	
 	public int inputOrderCount() {
-		opc = new outputClass();
 
-		
 		int orderCount = 0;
 		System.out.println("\n주문 개수를 입력해주세요.");
 		orderCount = scanner.nextInt();
@@ -62,7 +58,6 @@ public class inputClass {
 	}
 	
 	public int inputDiscountSelect() {
-		opc = new outputClass();
 
 		int discountSelect = 0;
 		
@@ -76,23 +71,23 @@ public class inputClass {
 		
 		switch (discountSelect) {
 		case 1:
-			tp.finalDiscountSelect = "선택사항 없음";
+			tp.finalDiscountSelect = "*선택사항 없음";
 			break;
 		case 2: 
 			System.out.println("장애인우대를 선택하셨습니다.\n");
-			tp.finalDiscountSelect = "장애인 우대";
+			tp.finalDiscountSelect = "*장애인 우대";
 			break;
 		case 3:
 			System.out.println("국가유공자우대를 선택하셨습니다.\n");
-			tp.finalDiscountSelect = "국가유공자 우대";
+			tp.finalDiscountSelect = "*국가유공자 우대";
 			break;
 		case 4:
 			System.out.println("다자녀우대를 선택하셨습니다.\n");
-			tp.finalDiscountSelect = "다자녀 우대";
+			tp.finalDiscountSelect = "*다자녀 우대";
 			break;
 		case 5:
 			System.out.println("임산부우대를 선택하셨습니다.\n");
-			tp.finalDiscountSelect = "임산부 우대";
+			tp.finalDiscountSelect = "*임산부 우대";
 			break;
 		default :
 			opc.printErrorMassage();
@@ -108,6 +103,13 @@ public class inputClass {
 		int select = scanner.nextInt();
 		
 		return select;
+	}
+	
+	public int checkNewOrder() {
+		System.out.printf("계속 진행 (1: 새로운 주문, 2: 프로그램 종료) : ");
+		int check = scanner.nextInt();
+		
+		return check;
 	}
 	
 

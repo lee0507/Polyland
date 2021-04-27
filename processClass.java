@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class processClass {
-	typeClass tp;
+	typeClass tp = new typeClass();
 	static ArrayList<String> ArrayOneRec = new ArrayList <String>();
 	
 	public int calcAge(String CustomerIDNumber) {
@@ -38,7 +38,6 @@ public class processClass {
 			tp.finalSex = "여성";
 			
 		}
-		System.out.println(age);
 		return age;
 	}
 	
@@ -70,10 +69,9 @@ public class processClass {
 			price = valueClass.OLD_NIGHT_PRICE;
 			tp.finalAge = "경로";
 		} else {
-			price = 0;
+			price = valueClass.BABY_PRICE;
 			tp.finalAge = "유아";
 		}
-		System.out.println(price * orderCount);
 		return price * orderCount;
 	}
 	
@@ -93,7 +91,7 @@ public class processClass {
 			totalprice = price * valueClass.PREGNANT_DISCOUNT_RATE;
 		}
 		tp.finalTotalPrice = String.valueOf(totalprice);
-		System.out.println(totalprice);
+		tp.sumFinalTotlaPrice += totalprice;
 		return totalprice;
 	}
 
@@ -107,14 +105,19 @@ public class processClass {
 	}
 	
 	public void printFinalTicket() {
-		typeClass tp;
-		for(int i = 0; i < ArrayOneRec.size(); i += 5) {
-			for(int j = i; j < i + 5; j++) {
-				System.out.println(ArrayOneRec.get(j));
-			}
-		}
-
 		
+		System.out.println("==================폴리랜드==================");
+		for(int i = 0; i < ArrayOneRec.size(); i += 5) {
+			System.out.printf("%3s %4sX %2s %6s %7s\n", ArrayOneRec.get(i), ArrayOneRec.get(i + 1), 
+					ArrayOneRec.get(i + 2), ArrayOneRec.get(i + 3), ArrayOneRec.get(i + 4));
+
+		}System.out.println("===========================================");
+		System.out.printf("입장료 총액은 %s원 입니다.\n", tp.sumFinalTotlaPrice);
+
+	}
+	
+	public void resettypeClass() {
+		ArrayOneRec.clear();
 	}
 
 }
