@@ -32,9 +32,9 @@ public class processClass {
 			age -= 1;
 		}
 		
-		if(customerSex.equals("1") && customerSex.equals("3")) {
+		if(customerSex.equals("1") || customerSex.equals("3")) {
 			tp.finalSex = "남성";
-		} else if(customerSex.equals("2") && customerSex.equals("4")) {
+		} else if(customerSex.equals("2") || customerSex.equals("4")) {
 			tp.finalSex = "여성";
 			
 		}

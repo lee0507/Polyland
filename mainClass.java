@@ -1,16 +1,21 @@
 package Polyland;
 
+import java.io.IOException;
+
 public class mainClass {
 	static processClass pc;
 	static inputClass ip;
 	static outputClass op;
 	static typeClass tp;
+	static filewriterClass fw;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		ip = new inputClass();
 		pc = new processClass();
 		op = new outputClass();
+		fw = new filewriterClass();
 		
+		fw.headerWrite();
 		while(true) {
 			
 			while(true) {
@@ -24,7 +29,7 @@ public class mainClass {
 				op.printTotalPrice();
 				
 				pc.saveFinalTicket();
-				
+				fw.dataWrite();
 				int select = ip.printContinue();
 				if(select == 1) {
 					continue;
@@ -44,7 +49,7 @@ public class mainClass {
 			}
 
 		}
-
+		fw.fileClose();
 
 	}
 	
