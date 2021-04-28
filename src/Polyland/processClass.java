@@ -46,10 +46,10 @@ public class processClass {
 		int price = 0;
 		if (age >= 19 && age <= 64 && ticketSelect == 1) {
 			price = valueClass.ADULT_DAY_PRICE;
-			tp.finalAge = "성인";
+			tp.finalAge = "성  인";
 		} else if (age >= 19 && age <= 64 && ticketSelect == 2) {
 			price = valueClass.ADULT_NIGHT_PRICE;
-			tp.finalAge = "성인";
+			tp.finalAge = "성  인";
 		} else if (age >= 13 && age <= 18 && ticketSelect == 1) {
 			price = valueClass.TEEN_DAY_PRICE;
 			tp.finalAge = "청소년";
@@ -58,19 +58,19 @@ public class processClass {
 			tp.finalAge = "청소년";
 		} else if (age >= 3 && age <= 12 && ticketSelect == 1) {
 			price = valueClass.CHILD_DAY_PRICE;
-			tp.finalAge = "소인";
+			tp.finalAge = "소  인";
 		} else if (age >= 3 && age <= 12 && ticketSelect == 2) {
 			price = valueClass.CHILD_NIGHT_PRICE;
-			tp.finalAge = "소인";
+			tp.finalAge = "소  인";
 		} else if (age <= 65 && ticketSelect == 1) {
 			price = valueClass.OLD_DAY_PRICE;
-			tp.finalAge = "경로";
+			tp.finalAge = "경  로";
 		} else if (age <= 65 && ticketSelect == 2) {
 			price = valueClass.OLD_NIGHT_PRICE;
-			tp.finalAge = "경로";
+			tp.finalAge = "경  로";
 		} else {
 			price = valueClass.BABY_PRICE;
-			tp.finalAge = "유아";
+			tp.finalAge = "유  아";
 		}
 		return price * orderCount;
 	}
@@ -108,7 +108,7 @@ public class processClass {
 		
 		System.out.println("==================폴리랜드==================");
 		for(int i = 0; i < ArrayOneRec.size(); i += 5) {
-			System.out.printf("%3s %4sX %2s %6s %7s\n", ArrayOneRec.get(i), ArrayOneRec.get(i + 1), 
+			System.out.printf("%3s %3s X%2s %5s %7s\n", ArrayOneRec.get(i), ArrayOneRec.get(i + 1), 
 					ArrayOneRec.get(i + 2), ArrayOneRec.get(i + 3), ArrayOneRec.get(i + 4));
 
 		}System.out.println("===========================================");

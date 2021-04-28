@@ -71,7 +71,7 @@ public class inputClass {
 		
 		switch (discountSelect) {
 		case 1:
-			tp.finalDiscountSelect = "*선택사항 없음";
+			tp.finalDiscountSelect = "*우대사항 없음";
 			break;
 		case 2: 
 			System.out.println("장애인우대를 선택하셨습니다.\n");
@@ -79,7 +79,7 @@ public class inputClass {
 			break;
 		case 3:
 			System.out.println("국가유공자우대를 선택하셨습니다.\n");
-			tp.finalDiscountSelect = "*국가유공자 우대";
+			tp.finalDiscountSelect = "*국가유공 우대";
 			break;
 		case 4:
 			System.out.println("다자녀우대를 선택하셨습니다.\n");
