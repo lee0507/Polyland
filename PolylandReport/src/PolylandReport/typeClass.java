@@ -34,4 +34,11 @@ public class typeClass {
 	static int woman_rate = 0;
 	static int man_total_price = 0;
 	static int woman_total_price = 0;
+	
+	static int normal_cnt = 0;
+	static int disabled_cnt = 0;
+	static int merit_cnt = 0;
+	static int multichild_cnt = 0;
+	static int pregnant_cnt = 0;
+
 }

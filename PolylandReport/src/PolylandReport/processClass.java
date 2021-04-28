@@ -80,4 +80,23 @@ public class processClass {
 		
 	}
 	
+public void totaldiscount() {
+		
+		for (int i = 0; i < tp.day1.length; i++) {
+			if(tp.day1[i][6].equals("*장애인 우대")) {
+				tp.disabled_cnt++;
+			} else if (tp.day1[i][6].equals("*국가유공 우대")) {
+				tp.merit_cnt++;
+			} else if (tp.day1[i][6].equals("*다자녀 우대")) {
+				tp.multichild_cnt++;
+			} else if (tp.day1[i][6].equals("*임산부 우대")) {
+				tp.pregnant_cnt++;
+			} else if (tp.day1[i][6].equals("*우대사항 없음")) {
+				tp.normal_cnt++;
+			} 
+			
+		}
+		
+	}
+	
 }

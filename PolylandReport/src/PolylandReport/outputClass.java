@@ -25,6 +25,7 @@ public class outputClass {
 		System.out.println("남여별 비율");
 		System.out.printf("여성비율 : %.2f%s 여성매출 : %s원\n", ((tp.woman_rate) / a) * 100, "%", tp.woman_total_price);
 		System.out.printf("남성비율 : %.2f%s 남성매출 : %s원\n", ((tp.man_rate) / a) * 100, "%", tp.man_total_price);
+		System.out.println();
 		
 		
 	}
@@ -34,6 +35,16 @@ public class outputClass {
 		for (int i = 0; i < tp.dates2.size(); i++) {
 			System.out.printf("%s %s원\n", tp.dates2.get(i), tp.dateprice.get(i));
 		}
+		System.out.println();
+	}
+	
+	public void printdiscount() {
+		System.out.println("우대권 현황");
+		System.out.printf("우대사항 없음 : %d개\n", tp.normal_cnt);
+		System.out.printf("장애인 우대권 : %d개\n", tp.disabled_cnt);
+		System.out.printf("국가유공 우대권 : %d개\n", tp.merit_cnt);
+		System.out.printf("다자녀 우대권 : %d개\n", tp.multichild_cnt);
+		System.out.printf("임산부 우대권 : %d개\n", tp.pregnant_cnt);
 		System.out.println();
 	}
 }

@@ -29,10 +29,12 @@ public class mainClass {
 		pc.dayTotalPrice(tp);
 		pc.dateTotalPrice(tp);
 		pc.totalgender();
+		pc.totaldiscount();
 		op.printdayticket();
 		op.printtotalprice();
 		op.printdateprice();
 		op.printrate();
+		op.printdiscount();
 
 
 
