@@ -8,7 +8,7 @@ public class typeClass {
 	static String finalOrderCount;
 	static String finalTotalPrice;
 	static String finalDiscountSelect;
-	static int sumFinalTotlaPrice;
+	static int sumFinalTotalPrice;
 	
 
 }

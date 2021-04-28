@@ -4,7 +4,8 @@ package Polyland;
 public class outputClass {
 	typeClass tp = new typeClass();
 	public void printErrorMassage() {
-		System.out.printf("다시 입력해주세요\n");
+		System.out.printf("※잘못 입력하셨습니다.\n※처음부터 다시 입력해주세요\n");
+		System.out.println();
 	}
 	public void printTotalPrice() {
 		System.out.printf("가격은 %s 원입니다.\n", tp.finalTotalPrice);

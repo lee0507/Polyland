@@ -30,6 +30,7 @@ public class mainClass {
 				
 				pc.saveFinalTicket();
 				fw.dataWrite();
+				
 				int select = ip.printContinue();
 				if(select == 1) {
 					continue;

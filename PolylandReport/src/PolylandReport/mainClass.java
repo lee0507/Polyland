@@ -28,12 +28,11 @@ public class mainClass {
 		pc.dayTicketReport(tp);
 		pc.dayTotalPrice(tp);
 		pc.dateTotalPrice(tp);
-		System.out.println(tp.dates);
-		System.out.println(tp.dates2);
-		System.out.println(tp.dateprice);
+		pc.totalgender();
 		op.printdayticket();
 		op.printtotalprice();
 		op.printdateprice();
+		op.printrate();
 
 
 

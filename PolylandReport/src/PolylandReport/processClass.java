@@ -65,6 +65,19 @@ public class processClass {
 			tp.plus_dateprice = 0;
 		}
 	}
-
-
+	
+	public void totalgender() {
+		
+		for (int i = 0; i < tp.day1.length; i++) {
+			if(tp.day1[i][3].equals("남성")) {
+				tp.man_rate++;
+				tp.man_total_price += Integer.parseInt(tp.day1[i][5]);
+			} else if (tp.day1[i][3].equals("여성")) {
+				tp.woman_rate++;
+				tp.woman_total_price += Integer.parseInt(tp.day1[i][5]);
+			}
+		}
+		
+	}
+	
 }

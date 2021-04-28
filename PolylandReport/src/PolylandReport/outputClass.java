@@ -15,14 +15,25 @@ public class outputClass {
 	}
 	
 	public void printtotalprice() {
-		System.out.printf("주간권 총 매출 %d원\n", tp.day_totalprice);
-		System.out.printf("야간권 총 매출 %d원\n", tp.night_totalprice);
+		System.out.printf("주간권 총 매출 : %d원\n", tp.day_totalprice);
+		System.out.printf("야간권 총 매출 : %d원\n", tp.night_totalprice);
 		System.out.println();
 	}
 	
+	public void printrate() {
+		double a = tp.woman_rate + tp.man_rate;
+		System.out.println("남여별 비율");
+		System.out.printf("여성비율 : %.2f%s 여성매출 : %s원\n", ((tp.woman_rate) / a) * 100, "%", tp.woman_total_price);
+		System.out.printf("남성비율 : %.2f%s 남성매출 : %s원\n", ((tp.man_rate) / a) * 100, "%", tp.man_total_price);
+		
+		
+	}
+	
 	public void printdateprice() {
+		System.out.println("날짜별 매출");
 		for (int i = 0; i < tp.dates2.size(); i++) {
 			System.out.printf("%s %s원\n", tp.dates2.get(i), tp.dateprice.get(i));
 		}
+		System.out.println();
 	}
 }

@@ -29,4 +29,9 @@ public class typeClass {
 	static int night_totalprice = 0;
 	
 	static int plus_dateprice = 0;
+	
+	static int man_rate = 0;
+	static int woman_rate = 0;
+	static int man_total_price = 0;
+	static int woman_total_price = 0;
 }

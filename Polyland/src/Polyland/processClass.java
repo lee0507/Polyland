@@ -91,7 +91,7 @@ public class processClass {
 			totalprice = price * valueClass.PREGNANT_DISCOUNT_RATE;
 		}
 		tp.finalTotalPrice = String.valueOf((int)totalprice);
-		tp.sumFinalTotlaPrice += totalprice;
+		tp.sumFinalTotalPrice += totalprice;
 		return totalprice;
 	}
 
@@ -112,12 +112,13 @@ public class processClass {
 					ArrayOneRec.get(i + 2), ArrayOneRec.get(i + 3), ArrayOneRec.get(i + 4));
 
 		}System.out.println("===========================================");
-		System.out.printf("입장료 총액은 %s원 입니다.\n", tp.sumFinalTotlaPrice);
+		System.out.printf("입장료 총액은 %s원 입니다.\n", tp.sumFinalTotalPrice);
 
 	}
 	
 	public void resettypeClass() {
 		ArrayOneRec.clear();
 	}
+	
 
 }
