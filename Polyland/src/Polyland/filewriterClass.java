@@ -13,14 +13,14 @@ public class filewriterClass {
 	
 	public filewriterClass() {
 		try {
-			File file = new File("D:\\polyland.csv");
+			File file = new File("polyland.csv");
 			
 			if(file.exists() == false) {
 				isFileExist = false;
 			} else {
 				isFileExist = true;
 			}
-			fw = new FileWriter("D:\\polyland.csv", true);
+			fw = new FileWriter("polyland.csv", true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

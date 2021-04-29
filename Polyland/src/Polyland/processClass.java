@@ -26,6 +26,10 @@ public class processClass {
 			customerYear += 2000;
 			tp.age = year - customerYear;
 		}
+		
+		if(customerSex.equals("3") || customerSex.equals("4")) {
+			tp.age -= 100; 
+		}
 
 		if (customerMonth > month && customerDay > day) {
 			tp.age -= 1;
