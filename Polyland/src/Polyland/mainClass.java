@@ -16,42 +16,47 @@ public class mainClass {
 		fw = new filewriterClass();
 		
 		fw.headerWrite();
-		while(true) {
-			
+		try {
 			while(true) {
-				int ticketSelect = ip.inputTicketSelect();
-				String customerIDNumber = ip.inputCustomerIDNumber();
-				int age = pc.calcAge(customerIDNumber);
-				int orderCount = ip.inputOrderCount();
-				int price = pc.priceAge(age, ticketSelect, orderCount);
-				int discountSelect = ip.inputDiscountSelect();
-				pc.priceDiscount(price, discountSelect);
-				op.printTotalPrice();
 				
-				pc.saveFinalTicket();
-				fw.dataWrite();
-				
-				int select = ip.printContinue();
-				if(select == 1) {
+				while(true) {
+					ip.inputTicketSelect(tp);
+					ip.inputCustomerIDNumber(tp);
+					pc.calcAge(tp);
+					ip.inputOrderCount(tp);
+					pc.priceAge(tp);
+					ip.inputDiscountSelect(tp);
+					pc.priceDiscount(tp);
+					op.printTotalPrice();
+					
+					pc.saveFinalTicket();
+					fw.dataWrite();
+					
+					int select = ip.printContinue();
+					if(select == 1) {
+						continue;
+					} else if (select == 2) {
+						op.printExitMassage();
+						pc.printFinalTicket();
+						break;
+					}
+					
+				}
+				int check = ip.checkNewOrder();
+				if(check == 1) {
+					pc.resettypeClass();
 					continue;
-				} else if (select == 2) {
-					op.printExitMassage();
-					pc.printFinalTicket();
+				} else if (check == 2) {
 					break;
 				}
-				
-			}
-			int check = ip.checkNewOrder();
-			if(check == 1) {
-				pc.resettypeClass();
-				continue;
-			} else if (check == 2) {
-				break;
-			}
 
+			}
+			fw.fileClose();
+
+		} catch (Exception e) {
+			
 		}
-		fw.fileClose();
-
+		
 	}
 	
 }

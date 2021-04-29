@@ -10,5 +10,13 @@ public class typeClass {
 	static String finalDiscountSelect;
 	static int sumFinalTotalPrice;
 	
+	static int ticketSelect;
+	static String CustomerIDNumber;
+	static int orderCount;
+	static int age;
+	static int priceorderCount;
+	static int discountSelect;
+	static double totalprice;
+	static int price;
 
 }

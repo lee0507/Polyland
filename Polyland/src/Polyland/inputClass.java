@@ -8,23 +8,22 @@ public class inputClass {
 	
 	Scanner scanner = new Scanner(System.in);
 	outputClass opc = new outputClass(); 
-	static typeClass tp = new typeClass();
-	static processClass pc = new processClass();
+	typeClass tp = new typeClass();
+	processClass pc = new processClass();
 	
-	public int inputTicketSelect() throws IOException {
-		
-		int ticketSelect = 0;
+	public int inputTicketSelect(typeClass tp) throws IOException {
+
 		while(true) {
 			System.out.println("권종을 선택해주세요.");
 			System.out.println("1. 주간권");
 			System.out.println("2. 야간권");
-			ticketSelect = scanner.nextInt();
+			tp.ticketSelect = scanner.nextInt();
 			
-			if (ticketSelect == 1) {
+			if (tp.ticketSelect == 1) {
 				System.out.println("주간권을 선택하셨습니다.\n");
 				tp.finalDayTicket = "주간권";
 				break;
-			} else if (ticketSelect == 2){
+			} else if (tp.ticketSelect == 2){
 				System.out.println("야간권을 선택하셨습니다.\n");
 				tp.finalDayTicket = "야간권";
 				break;
@@ -33,53 +32,49 @@ public class inputClass {
 
 			}
 		}
-		return ticketSelect;
+		return tp.ticketSelect;
 	}
 	
-	public String inputCustomerIDNumber() throws IOException {
+	public String inputCustomerIDNumber(typeClass tp) throws IOException {
 
-		String CustomerIDNumber;
 		while(true) {
 			System.out.println("주민번호를 입력해주세요.( - 없이 13자리를 입력해주세요)");
-			CustomerIDNumber = scanner.next();
-			if (CustomerIDNumber.length() == 13) {
+			tp.CustomerIDNumber = scanner.next();
+			if (tp.CustomerIDNumber.length() == 13) {
 				break;
 			} else {
 				opc.printErrorMassage();
 			}
 		}
-		return CustomerIDNumber;
+		return tp.CustomerIDNumber;
 	}
 	
-	public int inputOrderCount() {
+	public int inputOrderCount(typeClass tp) {
 
-		int orderCount = 0;
 		while(true) {
 			System.out.println("\n주문 개수를 입력해주세요.");
-			orderCount = scanner.nextInt();
-			tp.finalOrderCount = String.valueOf(orderCount);
-			if(orderCount > 0) {
+			tp.orderCount = scanner.nextInt();
+			tp.finalOrderCount = String.valueOf(tp.orderCount);
+			if(tp.orderCount > 0) {
 				break;
 			}
 		}
 
-		return orderCount;
+		return tp.orderCount;
 	}
 	
-	public int inputDiscountSelect() throws IOException {
-
-		int discountSelect = 0;
+	public int inputDiscountSelect(typeClass tp) throws IOException {
 		
 		while(true) {
 			System.out.println("\n우대사항을 입력해주세요.");
 			System.out.println("1. 없음 (나이우대는 자동적용됩니다.)");
-			System.out.println("2. 장애인우대.");
-			System.out.println("3. 국가유공자우대.");
-			System.out.println("4. 다자녀우대.");
-			System.out.println("5. 임산부우대.");
-			discountSelect = scanner.nextInt();
+			System.out.println("2. 장애인 우대");
+			System.out.println("3. 국가유공자 우대");
+			System.out.println("4. 다자녀 우대");
+			System.out.println("5. 임산부 우대");
+			tp.discountSelect = scanner.nextInt();
 			
-			switch (discountSelect) {
+			switch (tp.discountSelect) {
 			case 1:
 				tp.finalDiscountSelect = "*우대사항 없음";
 				break;
@@ -102,11 +97,11 @@ public class inputClass {
 			default :
 				opc.printErrorMassage();
 			}
-			if (discountSelect > 0 && discountSelect < 6) {
+			if (tp.discountSelect > 0 && tp.discountSelect < 6) {
 				break;
 			}
 		}
-		return discountSelect;
+		return tp.discountSelect;
 	}
 	
 	public int printContinue() {

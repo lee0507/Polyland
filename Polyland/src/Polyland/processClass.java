@@ -8,12 +8,11 @@ public class processClass {
 	typeClass tp = new typeClass();
 	static ArrayList<String> ArrayOneRec = new ArrayList <String>();
 	
-	public int calcAge(String CustomerIDNumber) {
-		int customerYear = Integer.parseInt(CustomerIDNumber.substring(0, 2));
-		int customerMonth= Integer.parseInt(CustomerIDNumber.substring(2, 4));
-		int customerDay = Integer.parseInt(CustomerIDNumber.substring(4, 6));
-		String customerSex = CustomerIDNumber.substring(6, 7);
-		int age = 0;
+	public int calcAge(typeClass tp) {
+		int customerYear = Integer.parseInt(tp.CustomerIDNumber.substring(0, 2));
+		int customerMonth= Integer.parseInt(tp.CustomerIDNumber.substring(2, 4));
+		int customerDay = Integer.parseInt(tp.CustomerIDNumber.substring(4, 6));
+		String customerSex = tp.CustomerIDNumber.substring(6, 7);
 		
 		Calendar cl = Calendar.getInstance();
 		int year = cl.get(Calendar.YEAR);
@@ -22,14 +21,14 @@ public class processClass {
 		
 		if (customerYear >= year - 2000) {
 			customerYear += 1900;
-			age = year - customerYear;
+			tp.age = year - customerYear;
 		} else if (customerYear < year - 2000){
 			customerYear += 2000;
-			age = year - customerYear;
+			tp.age = year - customerYear;
 		}
-		
+
 		if (customerMonth > month && customerDay > day) {
-			age -= 1;
+			tp.age -= 1;
 		}
 		
 		if(customerSex.equals("1") || customerSex.equals("3")) {
@@ -38,61 +37,59 @@ public class processClass {
 			tp.finalSex = "여성";
 			
 		}
-		return age;
+		return tp.age;
 	}
 	
-	public int priceAge(int age, int ticketSelect, int orderCount) {
+	public int priceAge(typeClass tp) {
 
-		int price = 0;
-		if (age >= 19 && age <= 64 && ticketSelect == 1) {
-			price = valueClass.ADULT_DAY_PRICE;
+		if (tp.age >= 19 && tp.age <= 64 && tp.ticketSelect == 1) {
+			tp.price = valueClass.ADULT_DAY_PRICE;
 			tp.finalAge = "성  인";
-		} else if (age >= 19 && age <= 64 && ticketSelect == 2) {
-			price = valueClass.ADULT_NIGHT_PRICE;
+		} else if (tp.age >= 19 && tp.age <= 64 && tp.ticketSelect == 2) {
+			tp.price = valueClass.ADULT_NIGHT_PRICE;
 			tp.finalAge = "성  인";
-		} else if (age >= 13 && age <= 18 && ticketSelect == 1) {
-			price = valueClass.TEEN_DAY_PRICE;
+		} else if (tp.age >= 13 && tp.age <= 18 && tp.ticketSelect == 1) {
+			tp.price = valueClass.TEEN_DAY_PRICE;
 			tp.finalAge = "청소년";
-		} else if (age >= 13 && age <= 18 && ticketSelect == 2) {
-			price = valueClass.TEEN_NIGHT_PRICE;
+		} else if (tp.age >= 13 && tp.age <= 18 && tp.ticketSelect == 2) {
+			tp.price = valueClass.TEEN_NIGHT_PRICE;
 			tp.finalAge = "청소년";
-		} else if (age >= 3 && age <= 12 && ticketSelect == 1) {
-			price = valueClass.CHILD_DAY_PRICE;
+		} else if (tp.age >= 3 && tp.age <= 12 && tp.ticketSelect == 1) {
+			tp.price = valueClass.CHILD_DAY_PRICE;
 			tp.finalAge = "소  인";
-		} else if (age >= 3 && age <= 12 && ticketSelect == 2) {
-			price = valueClass.CHILD_NIGHT_PRICE;
+		} else if (tp.age >= 3 && tp.age <= 12 && tp.ticketSelect == 2) {
+			tp.price = valueClass.CHILD_NIGHT_PRICE;
 			tp.finalAge = "소  인";
-		} else if (age >= 65 && ticketSelect == 1) {
-			price = valueClass.OLD_DAY_PRICE;
+		} else if (tp.age >= 65 && tp.ticketSelect == 1) {
+			tp.price = valueClass.OLD_DAY_PRICE;
 			tp.finalAge = "경  로";
-		} else if (age >= 65 && ticketSelect == 2) {
-			price = valueClass.OLD_NIGHT_PRICE;
+		} else if (tp.age >= 65 && tp.ticketSelect == 2) {
+			tp.price = valueClass.OLD_NIGHT_PRICE;
 			tp.finalAge = "경  로";
-		} else if(age <= 2){
-			price = valueClass.BABY_PRICE;
+		} else if(tp.age <= 2){
+			tp.price = valueClass.BABY_PRICE;
 			tp.finalAge = "유  아";
 		}
-		return price * orderCount;
+		tp.priceorderCount = tp.price * tp.orderCount;
+		return tp.priceorderCount;
 	}
 	
-	public double priceDiscount(int price, int discountSelect) {
+	public double priceDiscount(typeClass tp) {
 
-		double totalprice = 0;
-		
-		if (discountSelect == 1) {
-			totalprice = price;
-		} else if (discountSelect == 2) {
-			totalprice = price * valueClass.DISABLED_DISCOUNT_RATE;
-		} else if (discountSelect == 3) {
-			totalprice = price * valueClass.MERIT_DISCOUNT_RATE;
-		} else if (discountSelect == 4) {
-			totalprice = price * valueClass.MULTICHILD_DISCOUNT_RATE;
-		} else if (discountSelect == 5) {
-			totalprice = price * valueClass.PREGNANT_DISCOUNT_RATE;
+		if (tp.discountSelect == 1) {
+			tp.totalprice = tp.priceorderCount;
+		} else if (tp.discountSelect == 2) {
+			tp.totalprice = tp.priceorderCount * valueClass.DISABLED_DISCOUNT_RATE;
+		} else if (tp.discountSelect == 3) {
+			tp.totalprice = tp.priceorderCount * valueClass.MERIT_DISCOUNT_RATE;
+		} else if (tp.discountSelect == 4) {
+			tp.totalprice = tp.priceorderCount * valueClass.MULTICHILD_DISCOUNT_RATE;
+		} else if (tp.discountSelect == 5) {
+			tp.totalprice = tp.priceorderCount * valueClass.PREGNANT_DISCOUNT_RATE;
 		}
-		tp.finalTotalPrice = String.valueOf((int)totalprice);
-		tp.sumFinalTotalPrice += totalprice;
-		return totalprice;
+		tp.finalTotalPrice = String.valueOf((int)tp.totalprice);
+		tp.sumFinalTotalPrice += tp.totalprice;
+		return tp.totalprice;
 	}
 
 	
